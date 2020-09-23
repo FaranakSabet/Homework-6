@@ -23,7 +23,7 @@ $(document).ready(() => {
   const fetchWeather = (searchValue) => {
     $.ajax({
       type: "GET",
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${API_KEY}`,
+      url: `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${API_KEY}`,
       dataType: "json",
       success: (data) => {
         console.log(data);
@@ -66,7 +66,7 @@ $(document).ready(() => {
   const fetchForecast = (searchValue) => {
     $.ajax({
       type: "GET",
-      url: `http://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=${API_KEY}`,
+      url: `https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=${API_KEY}`,
       dataType: "json",
       success: (data) => {
         $("#forecast")
@@ -109,7 +109,7 @@ $(document).ready(() => {
   const fetchUVIndex = (lat, lon) => {
     $.ajax({
       type: "GET",
-      url: `http://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${lat}&lon=${lon}`,
+      url: `https://api.openweathermap.org/data/2.5/uvi?appid=${API_KEY}&lat=${lat}&lon=${lon}`,
       dataType: "json",
       success: (data) => {
         let uv = $("<p>").text("UV Index: ");
