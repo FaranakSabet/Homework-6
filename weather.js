@@ -1,12 +1,20 @@
 const API_KEY = "2192a0294b75814f80b390e756fb8a65";
 
 $(document).ready(() => {
+
+  
+  let history = JSON.parse(window.localStorage.getItem("history")) || [];
+
   $("#search-button").on("click", () => {
     let query = $("#search-value").val();
 
     $("#search-value").val("");
 
     fetchWeather(query);
+
+    // add to weather list
+    listCities(query)
+
   });
 
   $(".history").on("click", "li", function () {
@@ -104,6 +112,8 @@ $(document).ready(() => {
         });
       },
     });
+
+    
   };
 
   const fetchUVIndex = (lat, lon) => {
@@ -128,11 +138,22 @@ $(document).ready(() => {
     });
   };
 
-  let history = JSON.parse(window.localStorage.getItem("history")) || [];
-
-  if (history.length > 0) {
-    fetchWeather(history[history.length - 1]);
+  // UPDATE HISTORY
+  const updateHistory = () => {
+  
+    
+    console.log('history', history)
+  
+    if (history.length > 0) {
+      fetchWeather(history[history.length - 1]);
+    }
+  
+    history.forEach((h) => listCities(h));
   }
 
-  history.forEach((h) => listCities(h));
+  updateHistory()
+
+  
 });
+
+
