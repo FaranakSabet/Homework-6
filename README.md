@@ -14,4 +14,5 @@ THEN I am again presented with current and future conditions for that city
 WHEN I open the weather dashboard
 THEN I am presented with the last searched city forecast
 
-![](Repository.PNG)
+![weather-dashboard](https://user-images.githubusercontent.com/65681350/97827850-4a1e0000-1c7a-11eb-93b7-c228e28378f4.PNG)
+
